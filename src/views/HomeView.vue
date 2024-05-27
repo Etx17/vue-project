@@ -1,4 +1,3 @@
-<!-- src/views/HomeView.vue -->
 <template>
   <div>
     <h1>Bee Hives</h1>
@@ -17,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import axios from 'axios';
+import { useHiveStore } from '../stores/hives';
 
 interface Hive {
   id: number;
@@ -27,39 +26,21 @@ interface Hive {
 
 export default defineComponent({
   name: 'HomeView',
-  data() {
+  setup() {
+    const hiveStore = useHiveStore();
+
     return {
-      hives: [] as Hive[],
+      hives: hiveStore.hives,
       newHive: {
         name: '',
-        weight: 0
-      }
+        weight: 0,
+      },
+      fetchHives: hiveStore.fetchHives,
+      addHive: hiveStore.addHive,
     };
-  },
-  methods: {
-    fetchHives() {
-      axios.get('http://localhost:3000/hives')
-        .then(response => {
-          this.hives = response.data;
-        })
-        .catch(error => {
-          console.error("There was an error fetching the hives!", error);
-        });
-    },
-    addHive() {
-      axios.post('http://localhost:3000/hives', { hive: this.newHive })
-        .then(response => {
-          this.hives.push(response.data);
-          this.newHive.name = '';
-          this.newHive.weight = 0;
-        })
-        .catch(error => {
-          console.error("There was an error adding the hive!", error);
-        });
-    }
   },
   mounted() {
     this.fetchHives();
-  }
+  },
 });
 </script>
