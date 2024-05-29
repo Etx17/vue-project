@@ -17,7 +17,7 @@ This is the front-end application for managing bee hives, built with Vue.js and 
    cd bee-hives-front
 2. **Install dependencies**
    ```bash
-  npm install
+     npm install
 
 ### Run the project
 Then run: npm run dev
