@@ -20,7 +20,10 @@ This is the front-end application for managing bee hives, built with Vue.js and 
      npm install
 
 ### Run the project
-Then run: npm run dev
+Then run: 
+   ```bash
+     npm run dev
+ ```
 Ensure the Rails API is running at http://localhost:3000
 
 ### Informations
