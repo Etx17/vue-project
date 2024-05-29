@@ -28,7 +28,7 @@ Ensure the Rails API is running at http://localhost:3000
 
 ### Informations
 Vue Router for client-side routing.
-Axios for making HTTP requests.
+Using simply "fetch" for making HTTP requests.
 TypeScript for type safety.
 
 ### Notes
