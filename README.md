@@ -32,5 +32,4 @@ Using simply "fetch" for making HTTP requests.
 TypeScript for type safety.
 
 ### Notes
-The HomeView component fetches the list of hives from the API on mount and includes a form to add a new hive which posts to the api.
-The HiveDetails component fetches details of a hive based on the ID from the route parameters.
+The app is using a central store, useHiveStore, which manages the state and actions that we can do with hives (create, fetching). On application load (App.vue), the store's fetchHives action is called to populate the hives state with data fetched from the API. The HomeView component is showing the form, and the HiveDetails component is here to display details about a hive.
